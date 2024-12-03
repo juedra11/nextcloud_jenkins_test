@@ -28,6 +28,12 @@ resource "docker_image" "mariadb"{
     name="mariadb:10.6"
 }
 
+#################### VOLUMENES #######################
+
+resource "docker_volumes" "nextcloud_data"{
+  name = "nextcloud_data"
+}
+
 #################### CONTENEDORES #######################
 
 resource "docker_container" "mariadb_nextcloud"{
@@ -73,6 +79,10 @@ resource "docker_container" "web_nextcloud"{
         internal = 80
         external = 8011
     }
+
+    volumes = [
+      "${docker_volumes.nextcloud_data.name}:/var/html/www/data"
+    ]
 
     depends_on =[
         docker_container.mariadb_nextcloud
