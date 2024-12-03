@@ -30,7 +30,7 @@ resource "docker_image" "mariadb"{
 
 #################### VOLUMENES #######################
 
-resource "docker_volumes" "nextcloud_data"{
+resource "docker_volume" "nextcloud_data"{
   name = "nextcloud_data"
 }
 
@@ -81,7 +81,7 @@ resource "docker_container" "web_nextcloud"{
     }
 
     volumes = [
-      "${docker_volumes.nextcloud_data.name}:/var/html/www/data"
+      "${docker_volume.nextcloud_data.name}:/var/html/www/data"
     ]
 
     depends_on =[
