@@ -31,7 +31,7 @@ resource "docker_image" "mariadb"{
 #################### VOLUMENES #######################
 
 resource "docker_volume" "nextcloud_data"{
-  name = "nextcloud_data"
+  name = "/mnt/prueba_qnap"
 }
 
 #################### CONTENEDORES #######################
@@ -80,9 +80,11 @@ resource "docker_container" "web_nextcloud"{
         external = 8011
     }
 
-    volumes = [
-      "${docker_volume.nextcloud_data.name}:/var/html/www/data"
-    ]
+
+    volumes {
+        host_path = docker_volume.nextcloud_data.name
+        container_path = "/var/html/www/data"
+    }
 
     depends_on =[
         docker_container.mariadb_nextcloud
