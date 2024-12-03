@@ -28,12 +28,6 @@ resource "docker_image" "mariadb"{
     name="mariadb:10.6"
 }
 
-#################### VOLUMENES #######################
-
-resource "docker_volume" "nextcloud_data"{
-  name = "/mnt/prueba_qnap"
-}
-
 #################### CONTENEDORES #######################
 
 resource "docker_container" "mariadb_nextcloud"{
