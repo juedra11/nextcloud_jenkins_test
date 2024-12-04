@@ -50,6 +50,8 @@ resource "docker_container" "mariadb_nextcloud"{
         external = 3303
     }
 
+    user = "root"
+
 }
 
 
