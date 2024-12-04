@@ -74,6 +74,8 @@ resource "docker_container" "web_nextcloud"{
         external = 8011
     }
 
+    user = "root"
+
 
     volumes {
         host_path = "/mnt/prueba_qnap"
