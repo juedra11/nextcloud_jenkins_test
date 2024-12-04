@@ -50,7 +50,7 @@ resource "docker_container" "mariadb_nextcloud"{
         external = 3303
     }
 
-    user = "desarrollador"
+    user = "root"
 
 }
 
@@ -76,7 +76,7 @@ resource "docker_container" "web_nextcloud"{
         external = 8011
     }
 
-    user = "desarrollador"
+    user = "root"
 
 
     volumes {
