@@ -76,7 +76,8 @@ resource "docker_container" "web_nextcloud"{
 
 
     volumes {
-        host_path = "/mnt/prueba_qnap"
+        ## host_path = "/mnt/prueba_qnap"
+        host_path = "./volumen"
         container_path = "/var/html/www/data"
     }
 
