@@ -80,7 +80,8 @@ resource "docker_container" "web_nextcloud"{
 
 
     volumes {
-        host_path = "/mnt/prueba_qnap"
+        host_path = "/home/desarrollador/Servicios/mnt/volumenPrueba"
+        #host_path = "/mnt/prueba_qnap"
         #host_path = "/home/desarrollador/Servicios/Infreaestructura/jenkins/jenkins_home/workspace/Nextclous_terraform_test/volumen"
         container_path = "/var/www/html/data"
     }
