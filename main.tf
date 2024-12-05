@@ -81,7 +81,7 @@ resource "docker_container" "web_nextcloud"{
 
     volumes {
         host_path = "/mnt/vol_idexud_NC/prueba"
-        container_path = "/var/www/html/data"
+        container_path = "/var/www/html"
     }
 
     depends_on =[
